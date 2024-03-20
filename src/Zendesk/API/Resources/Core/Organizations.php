@@ -4,6 +4,7 @@ namespace Zendesk\API\Resources\Core;
 
 use Zendesk\API\Resources\ResourceAbstract;
 use Zendesk\API\Traits\Resource\CreateMany;
+use Zendesk\API\Traits\Resource\CreateOrUpdate;
 use Zendesk\API\Traits\Resource\Defaults;
 use Zendesk\API\Traits\Resource\DeleteMany;
 use Zendesk\API\Traits\Resource\FindMany;
@@ -22,6 +23,7 @@ class Organizations extends ResourceAbstract
 {
     use InstantiatorTrait;
 
+    use CreateOrUpdate;
     use Defaults;
 
     use CreateMany;

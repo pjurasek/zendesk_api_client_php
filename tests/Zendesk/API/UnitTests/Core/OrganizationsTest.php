@@ -99,4 +99,18 @@ class OrganizationsTest extends BasicTest
             $this->client->organizations()->search($externalId);
         }, 'organizations/search.json', 'GET', ['queryParams' => ['external_id' => 123]]);
     }
+
+    /**
+     * Test for create or update method
+     */
+    public function testCreateOrUpdate()
+    {
+        $postFields = [
+            'external_id' => 123,
+            'name'        => 'My Organization',
+        ];
+        $this->assertEndpointCalled(function () use ($postFields) {
+            $this->client->organizations()->createOrUpdate($postFields);
+        }, 'organizations/create_or_update.json', 'POST', ['postFields' => ['organization' => $postFields]]);
+    }
 }
